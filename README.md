@@ -30,3 +30,15 @@ The second option to integrate OAuth2 is an integration as an OAuth2 SCA Approac
 In both services, PIS and AIS, OAuth2 will in this option be used in an integrated way, by using the following steps:
 
 However this will never ever going to be near 10% completed. Sad.
+
+4.4 XS2A Interface API Structure
+The XS2A Interface is resource oriented. Resources can be addressed under the API endpoints
+https://{provider}/v1/{service}{?query-parameters}
+
+
+4.6 Authorisation Endpoints
+The NextGenPSD2 API is supporting dedicated authorisation endpoints for payment initiation transactions and establish consent transactions in order to handle transaction authorisation by PSUs. These authorisation endpoints are supported from version 1.2 of this specification for supporting the following new features in a common structured way
+* multiple level SCA, where a transaction needs an authorisation by more than one PSU, e.g. in a corporate context,
+* signing of a group of transactions with one SCA, as it is offered by ASPSPs today in online banking,
+* signing of a group of transactions with multi-level SCA, where this group of transactions need an authorisation by more than one PSU, e.g. in a corporate context.
+To support this, the resources resulting from the submission of payment data or consent data are separated from authorisation (sub-)resources. A payment which needs to be signed n times then will end up in a payment resource with n SCA (sub-)resources in a normal successful process.
